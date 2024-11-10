@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testform</title>
+</head>
+<body>
+    <form action="" method="post">
+        <fieldset style="background-color: silver;"><caption><b>Testform</b></caption></fieldset>
+        <fieldset>
+            <table>
+                <tbody>
+                    <tr>
+                        <td style="width: 200px">
+                            <label for="name"><strong>Name</strong></label>
+                            
+
+                        </td>
+                        <td>
+                            <input type="name" id="name" name="name" required>
+                        </td>
+                    </tr>
+                        <td>
+                            <label for="Password"><strong>Password</strong></label>
+                        
+                        </td>
+                        <td>    <input type="password" id="password" name="name" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top">
+                            <label for="gender"><strong>Gender</strong></label>
+                        <td>
+                            <input type="radio" name="gender" id="male" value="male">
+                            <label for="male"> Male</label>
+                            <br>
+                            <input type="radio" name="gender" id="female" value="female">
+                            <label for="female">Female</label>
+                        </td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="Continent"><strong>Continent</strong></label>
+                        </td>
+                        <td>
+                            <select name="continent" id="continent required">
+                                <option value="" selected disabled hidden>Please select</option>
+                                <option value="Europe">Europe</option>
+                                <option value="Asia">Asia</option>
+                                <option value="Australia">Australia</option>
+                                <option value="south-america">South America</option>
+                                <option value="north-america">North America</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top">
+                            <label for="Meals"><strong>Meals</strong></label>
+                        </td>
+                        <td>
+                            <input type="checkbox" name="meals" id="breakfast" value="breakfast">
+                            <label for="breakfast">breakfast</label> 
+                        <br>
+                            <input type="checkbox" name="meals" id="lunch" value="lunch">
+                            <label for="breakfast">lunch</label>
+                        <br>
+                            <input type="checkbox" name="meals" id="dinner" value="dinner">
+                            <label for="dinner">dinner</label>
+                        </td>
+                    <tr>
+                        <td valign="top">
+                            <label for="Remark"><strong>Remark</strong></label>
+                        <td>
+                            <textarea name="remark" id="remark" cols="80" rows="7"></textarea>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </filedset>
+        <br>
+        <fieldset style="background-color: silver;">
+            <input type="submit" value="Send">
+            <input type="reset" value="Reset">
+        </fieldset>
+    
+        
+
+    </form>
+    
+</body>
+</html>
