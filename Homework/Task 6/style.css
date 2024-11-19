@@ -1,0 +1,54 @@
+body{
+    background-color: lightblue;
+}
+h1{
+    color: #7f2613;
+}
+p{
+    background-color: rgb(255, 244, 155);
+    width: fit-content;
+}
+
+#Classes{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    width: fit-content;
+    color: red;
+    
+    
+}
+.class1{
+    font-style: oblique ;
+    border-style: groove;
+    border-color: rgba(171, 173, 12, 0.8);
+    width: fit-content;
+    background-color: rgba(21, 32, 164, 0.8);
+    
+}
+.class2{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-style: double;
+    border-color: rgba(17, 183, 157, 0.8);
+    color: rgba(42, 65, 61, 0.8);
+    width: fit-content;
+    
+}
+.class3{
+    font-family: 'Courier New', Courier, monospace;
+    border-style: dashed;
+    border-color: rgba(65, 42, 44, 0.94);
+    color: rgba(66, 188, 32, 0.94) ;
+    width: fit-content;
+}
+li::marker{
+    color:blue
+}
+.button{
+    background-color: rgba(12, 110, 91, 0.8);
+}
+.button:hover{
+    color: hsl(349 100% 92%);
+    background-color: hsla(328, 100%, 44%, 0.78);
+
+
+}
+
