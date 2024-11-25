@@ -1,0 +1,66 @@
+h1{
+    text-align:center;
+}
+.container{
+    position: relative;
+    margin-top: 200px;
+    margin-left: 700px;
+    
+}
+.boxes{
+    border: 5px burlywood solid;
+    position: absolute;
+}
+.b1{
+
+    border-right: 10px burlywood solid;
+    border-bottom: 15px burlywood solid; 
+    width: 130px;
+    height: 170px;
+}
+.b2{
+
+    border-right: 10px burlywood solid;
+    border-bottom: 10px burlywood solid;
+    top: 190px;
+    width: 130px;
+    height: 235px;
+}
+.b3{
+    background-color: lightblue;
+    border-right: 10px burlywood solid;
+    top: 437px;
+    width: 130px;
+    height: 150px;
+}
+.b4{
+    background-color: red;
+    border-bottom: 12px burlywood solid;
+    border-left: 10px burlywood solid;
+    left: 145px;
+    width: 465px;
+    height: 423px;
+}
+.b5{
+    border-left: 20px burlywood solid;
+    border-bottom: 4px burlywood solid;
+    border-right: 5px burlywood solid;
+    top: 438px;
+    left: 135px;
+    width: 435px;
+    height: 150px;
+}
+.b6{
+    top: 438px;
+    left: 590px;
+    width: 25px;
+    height: 70px;
+}
+.b7{
+    background-color: yellow;
+    top: 517px;
+    left: 590px;
+    width: 25px;
+    height: 70px;
+
+}
