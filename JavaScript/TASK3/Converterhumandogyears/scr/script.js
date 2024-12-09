@@ -57,7 +57,4 @@ function DogConverter(year, sortof) {
 let DogYears = parseInt(prompt('Enter your dogs age'));
 console.log(DogConverter(Number(DogYears), "DogYears"));
 
-// Note: Samo ne uspeav da napravam da funkcionira na sledniot nacin: Dokolku koga prvo vnesuvame nesto sto ne e broj.
-//  kaj prviot obid za presmetuvanje od godini vo kuceski godini mi dava prompt za vnesuvanje godini za da presmeta vo kuceski,
-// no potoa me prefrla pravo kaj vtoriot prompt za da presmeta kuceski godini vo godini , a sakav da mi se vrati kaj prviot obid da ne vleze vo naredniot uslov dali ima nekakva moznost za toa?
 
