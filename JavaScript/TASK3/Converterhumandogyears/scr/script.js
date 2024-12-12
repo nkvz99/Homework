@@ -5,7 +5,7 @@ console.log("Connected");
 function HumanConverter(year, sortof) {
     if (Number.isNaN(year)) {
         alert('Please enter the age in numbers.');
-        let newtry = parseInt(prompt('Please enter the age as a number'), 10);
+        let newtry = parseInt(prompt('Please enter the age as a number'));
         return HumanConverter(newtry); 
     }
     else if (sortof === "HumanToDog") {
