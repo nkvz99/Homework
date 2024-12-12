@@ -24,3 +24,5 @@ let converter = prompt('Enter the conversion type ("HumanToDog" or "DogToHuman")
 let result = HumanConverter(age, converter);
 alert(result);
 
+
+
