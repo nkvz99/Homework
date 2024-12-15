@@ -1,8 +1,5 @@
 console.log("Connected")
 function sumofmaxandmin(array) {
-    if (array.length === 0) {
-        return "Array is empty.";
-    }
 
     let max = Math.max(...array); 
     let min = Math.min(...array); 
