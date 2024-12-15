@@ -8,8 +8,6 @@ function sumofmaxandmin(array) {
     return `Max: ${max}, Min: ${min}, Sum: ${sum}`;
 }
 
-
-
 let sum1 = sumofmaxandmin([10 , 20 , 30 , 40 ,50])
 console.log(sum1)
 
