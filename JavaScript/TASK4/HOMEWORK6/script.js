@@ -9,7 +9,7 @@ function fullnames(firstnames, lastnames) {
     return fullnames;
 }
 
-let first = ["Zoran", "Marko" , "Bojan"];
-let last = ["Nakov" , "Markov" , "Bojanov"];
+let firstnames = ["Zoran", "Marko" , "Bojan"];
+let lastnames = ["Nakov" , "Markov" , "Bojanov"];
 
-console.log(fullnames(first , last));  
+console.log(fullnames(firstnames , lastnames));  
