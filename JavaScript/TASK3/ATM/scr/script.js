@@ -19,3 +19,6 @@ let withdrawamount = parseInt(prompt('Enter the amount you want to withdraw:'));
 let result = withdraw(withdrawamount);
 alert(result);
 
+
+
+
