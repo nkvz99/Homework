@@ -5,7 +5,7 @@ let numberList = document.getElementById("numberList");
 let sum = 0;
 let equation = "";
 
-for (let i = 0; i < numbers.length; i++) {
+for (let i = 0; i <= numbers.length; i++) {
     if (typeof numbers[i] === 'number') {
         numberList.innerHTML += `<li>${numbers[i]}</li>`;
         sum += numbers[i];
