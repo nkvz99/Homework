@@ -1,15 +1,20 @@
 console.log("Connected")
 function fullnames(firstnames, lastnames) {
     let fullnames = [];
+    const minLength = Math.min(firstnames.length, lastnames.length);
 
-    for (let i = 0; i < firstnames.length; i++) {
-        fullnames.push(firstnames[i] + " " + lastnames[i]);
+    let index = 0; 
+    for (const firstname of firstnames) {
+        if (index < minLength) {
+            fullnames.push(`${firstname} ${lastnames[index]}`);
+        }
+        index++;
     }
 
     return fullnames;
 }
 
-let firstnames = ["Zoran", "Marko" , "Bojan"];
-let lastnames = ["Nakov" , "Markov" , "Bojanov"];
+let firstnames = ["Zoran", "Marko", "Bojan", ];
+let lastnames = ["Nakov", "Markov", "Bojanov", "Ivanov"];
 
-console.log(fullnames(firstnames , lastnames));  
+console.log(fullnames(firstnames, lastnames));
