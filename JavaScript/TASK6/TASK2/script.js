@@ -10,7 +10,7 @@ for (let i = 0; i <= numbers.length; i++) {
         numberList.innerHTML += `<li>${numbers[i]}</li>`;
         sum += numbers[i];
         if (equation === "") {
-            equation = `${numbers[i]}`; 
+            equation += `${numbers[i]}`; 
         } else {
             equation += ` + ${numbers[i]}`;  
         }
@@ -19,5 +19,4 @@ for (let i = 0; i <= numbers.length; i++) {
 equation += ` = ${sum}`;
 document.getElementById("sum").textContent = `The sum is: ${sum}`;
 document.getElementById("equation").textContent = `Mathematical Equation: ${equation}`;
-
 
