@@ -22,9 +22,9 @@ function convert(number) {
     if (number === 0) return "zero";
     if (number === 100000000) return "one hundred million";
 
-    const ones = ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+    const ones = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
     const teens = ["ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"];
-    const tens = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
+    const tens = ["twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
 
     let words = "";
 
