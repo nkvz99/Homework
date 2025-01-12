@@ -3,8 +3,8 @@ let textNumbers = document.getElementById("numbers");
 let textWords = document.getElementById("words");
 let errorMessage = document.getElementById("error");
 
-textNumbers.addEventListener("input", (e) => {
-    let value = e.target.value;
+textNumbers.addEventListener("input", (event) => {
+    let value = event.target.value;
     if (isNaN(value) || value === "") {
         errorMessage.textContent = "Please enter only numbers.";
         textWords.value = "";
