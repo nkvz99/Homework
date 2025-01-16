@@ -16,7 +16,7 @@ function users() {
             console.log(parsedResult)
             parsedResult.forEach(user => {
                 divResult.innerHTML += `<p><b>Name:</b> ${user.name}</p>`;
-                divResult.innerHTML += `<p><b>Email:</b ${user.email}</p>`;
+                divResult.innerHTML += `<p><b>Email:</b> ${user.email}</p>`;
                 divResult.innerHTML += `<p><b>Address:</b> ${user.address.street}, ${user.address.suite}, ${user.address.city}, ${user.address.zipcode}</p>`;
                 divResult.innerHTML += `<p><b>Phone:</b> ${user.phone}</p>`;
                 divResult.innerHTML += `<hr>`;
