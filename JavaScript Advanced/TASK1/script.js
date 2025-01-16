@@ -1,8 +1,7 @@
 console.log("Connected")
+const clickBtn = document.getElementById("clickBtn");
+const divResult = document.getElementById("usersResult");
 function users() {
-    const clickBtn = document.getElementById("users_clickBtn");
-    const divResult = document.getElementById("usersResult");
-
     fetch("https://jsonplaceholder.typicode.com/users")
         .then(function (response) {
             console.log(response);
@@ -16,16 +15,15 @@ function users() {
             let parsedResult = JSON.parse(result);
             console.log(parsedResult)
             parsedResult.forEach(user => {
-                divResult.innerHTML += `<p><strong>Name:</strong> ${user.name}</p>`;
-                divResult.innerHTML += `<p><strong>Email:</strong> ${user.email}</p>`;
-                divResult.innerHTML += `<p><strong>Address:</strong> ${user.address.street}, ${user.address.suite}, ${user.address.city}, ${user.address.zipcode}</p>`;
-                divResult.innerHTML += `<p><strong>Phone:</strong> ${user.phone}</p>`;
+                divResult.innerHTML += `<p><b>Name:</b> ${user.name}</p>`;
+                divResult.innerHTML += `<p><b>Email:</b ${user.email}</p>`;
+                divResult.innerHTML += `<p><b>Address:</b> ${user.address.street}, ${user.address.suite}, ${user.address.city}, ${user.address.zipcode}</p>`;
+                divResult.innerHTML += `<p><b>Phone:</b> ${user.phone}</p>`;
                 divResult.innerHTML += `<hr>`;
             });
 }
 );
 }
-
 clickBtn.addEventListener("click", function () {
     users();
 });
