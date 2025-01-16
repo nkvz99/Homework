@@ -2,8 +2,8 @@ console.log("Connected")
 const clickBtn = document.getElementById("clickBtn");
 const divResult = document.getElementById("usersResult");
 function users() {
-    fetch("https://jsonplaceholder.typicode.com/users")
-        .then(function (response) {
+    fetch("https://jsonplaceholder.typicode.com/users")  
+        .then(function (response) {     
             console.log(response);
             let usersJSONresult = response.text()
             console.log(usersJSONresult)
