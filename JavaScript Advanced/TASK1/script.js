@@ -7,7 +7,7 @@ function users() {
     fetch("https://jsonplaceholder.typicode.com/users")
         .then(function (response) {
             console.log(response);
-            let usersJSONresult = response.text()
+            const usersJSONresult = response.text()
             console.log(usersJSONresult)
             return usersJSONresult
 
