@@ -16,6 +16,7 @@ function users() {
             console.log(result)
             const parsedResult = JSON.parse(result);
             console.log(parsedResult)
+            divResult.innerHTML = ""  // za da ne ni se printa poveke pati kodot
             parsedResult.forEach((user) => {
                 divResult.innerHTML += `<p><b>Name:</b> ${user.name}</p>`;
                 divResult.innerHTML += `<p><b>Email:</b> ${user.email}</p>`;
