@@ -77,8 +77,13 @@ function calculate() {
       case "÷":
         result = num1 / num2;
         break;
+    }if (Number.isInteger(result)){
+      currentInput = result.toString();
+
+    }else{
+      currentInput = result.toFixed(4).toString()
     }
-    currentInput = result.toString();
+    
     previousInput = "";
     operator = null;
 
