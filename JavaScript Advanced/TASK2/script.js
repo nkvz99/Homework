@@ -74,18 +74,22 @@ const displayAverageGradesOfFemaleStudentsOver24 = (students) => {
     const filteredStudents = students.filter(student => student.gender === "Female" && student.age > 24);
     const resultsDiv = document.getElementById("results");
     resultsDiv.innerHTML = "";
-    filteredStudents.forEach(student => {
-        resultsDiv.innerHTML += `
-        Full Name: ${student.firstName} ${student.lastName}
-        <br>
-        Age: ${student.age}
-        <br>
-        Gender: ${student.gender}
-        <br>
-        Grade: ${student.averageGrade}
-        <hr>`;
-    });
-    console.log(filteredStudents);
+    const totalGrades = filteredStudents.reduce((sum, student) => sum + student.averageGrade, 0);
+    let averageGrade = 0;
+    if (filteredStudents.length > 0) {
+        averageGrade = (totalGrades / filteredStudents.length).toFixed(2);
+    }
+    if (filteredStudents.length > 0) {
+        filteredStudents.forEach(student => {
+            resultsDiv.innerHTML += `
+                Full Name: ${student.firstName} ${student.lastName}<br>
+                Age: ${student.age}<br>
+                Grade: ${student.averageGrade}<hr>`;
+        });
+        resultsDiv.innerHTML += `<strong>Average Grade: ${averageGrade}</strong>`;
+    } else {
+        resultsDiv.innerHTML = "<strong>No female students over 24 found.</strong>";
+    }
 };
 
 // Function to display male students whose name starts with "B" and average grade over 2
