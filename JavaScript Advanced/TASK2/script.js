@@ -77,7 +77,7 @@ const displayAverageGradesOfFemaleStudentsOver24 = (students) => {
     const totalGrades = filteredStudents.reduce((sum, student) => sum + student.averageGrade, 0);   // so reduce metodot gi sumirame site vrednosti od average grade vo edna vrednost.
     let averageGrade = 0;
     if (filteredStudents.length > 0) {
-        averageGrade = (totalGrades / filteredStudents.length).toFixed(2);    // so tofixed funkcijata toa go zapamtiv od kalkulatorot kolku decimali da dozvolime da ni vrati.
+        averageGrade = (totalGrades / filteredStudents.length).toFixed(2);    // so tofixed funkcijata toa go zapamtiv od kalkulatorot kolku decimali da dozvolime da ni vrati. i ja presmetuvame vrednosta od totalgrades sto e izvadena od zbirot ja delime so dolzinata na studentite
     }
     if (filteredStudents.length > 0) {
         filteredStudents.forEach(student => {
