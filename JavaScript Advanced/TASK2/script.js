@@ -74,10 +74,10 @@ const displayAverageGradesOfFemaleStudentsOver24 = (students) => {
     const filteredStudents = students.filter(student => student.gender === "Female" && student.age > 24);
     const resultsDiv = document.getElementById("results");
     resultsDiv.innerHTML = "";
-    const totalGrades = filteredStudents.reduce((sum, student) => sum + student.averageGrade, 0);
+    const totalGrades = filteredStudents.reduce((sum, student) => sum + student.averageGrade, 0);   // so reduce metodot gi sumirame site vrednosti od average grade vo edna vrednost.
     let averageGrade = 0;
     if (filteredStudents.length > 0) {
-        averageGrade = (totalGrades / filteredStudents.length).toFixed(2);
+        averageGrade = (totalGrades / filteredStudents.length).toFixed(2);    // so tofixed funkcijata toa go zapamtiv od kalkulatorot kolku decimali da dozvolime da ni vrati.
     }
     if (filteredStudents.length > 0) {
         filteredStudents.forEach(student => {
@@ -86,9 +86,9 @@ const displayAverageGradesOfFemaleStudentsOver24 = (students) => {
                 Age: ${student.age}<br>
                 Grade: ${student.averageGrade}<hr>`;
         });
-        resultsDiv.innerHTML += `<strong>Average Grade: ${averageGrade}</strong>`;
+        resultsDiv.innerHTML += `<b>Average Grade: ${averageGrade}</b>`;
     } else {
-        resultsDiv.innerHTML = "<strong>No female students over 24 found.</strong>";
+        resultsDiv.innerHTML = "<b>No female students over 24 found.</b>";
     }
 };
 
