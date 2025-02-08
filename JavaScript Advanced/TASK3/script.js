@@ -1,23 +1,21 @@
 
 const fetchCountryData = async (countryCode = 'all') => {
     try {
-        let url;
-        if (countryCode === 'all') {
-            url = 'https://restcountries.com/v3.1/all';
-        } else {
-            url = `https://restcountries.com/v3.1/alpha/${countryCode}`;
-        }
+        const url = countryCode === 'all' 
+            ? 'https://restcountries.com/v3.1/all' 
+            : `https://restcountries.com/v3.1/alpha/${countryCode}`;
+
         const response = await fetch(url);
         const data = await response.json();
 
-
         if (data.length === 0) {
-            if (countryCode === 'all') {
-                throw new Error('No countries found.');
-            } else {
-                throw new Error(`No data found for country code: ${countryCode}`);
-            }
+            throw new Error(
+                countryCode === 'all' 
+                    ? 'No countries found.' 
+                    : `No data found for country code: ${countryCode}`
+            );
         }
+
         return data;
     } catch (error) {
         console.log('Error happened:', error);
@@ -79,31 +77,31 @@ const displayNeighbours = (neighbours) => {
 
 
 const handleGetNeighbours = async () => {
-    const countrySelect = document.getElementById('countrySelect');
-    const selectedCountryCode = countrySelect.value;
+    try {
+        const countrySelect = document.getElementById('countrySelect');
+        const selectedCountryCode = countrySelect.value;
 
-    if (!hasSelectedCountryCode(selectedCountryCode)) return;
+        if (!hasSelectedCountryCode(selectedCountryCode)) return;
 
-    const country = await fetchCountryData(selectedCountryCode);
-    console.log('Fetched Country:', country);
+        const country = await fetchCountryData(selectedCountryCode);
+        console.log('Fetched Country:', country);
 
-    if (!isCountryDataValid(country)) return;
+        if (!isCountryDataValid(country)) return;
 
-    const countryData = country[0];
-    if (countryData.borders && countryData.borders.length > 0) {
-        const neighbours = await fetchAndProcessNeighbours(countryData.borders);
-        displayNeighbours(neighbours);
-    } else {
-        displayNeighbours([]);
+        const countryData = country[0];
+        if (countryData.borders && countryData.borders.length > 0) {
+            const neighbours = await fetchAndProcessNeighbours(countryData.borders);
+            displayNeighbours(neighbours);
+        } else {
+            displayNeighbours([]);
+        }
+        clearCountrySelection();
+    } catch (error) {
+        console.error('Error in handleGetNeighbours:', error);
+        alert('An error occurred while fetching neighbour data. Please try again.');
     }
-
-    clearCountrySelection();
 };
 
-
-const isValidCountryData = (countries) => {
-    return countries && countries.length > 0;
-};
 
 
 const printCountrySelect = (countries, countrySelect) => {
@@ -123,11 +121,27 @@ const setupGetNeighboursButton = () => {
 
 
 const setupDropDown = async () => {
-    const countries = await fetchCountryData();
-    const countrySelect = document.getElementById('countrySelect');
+    try {
+        const countries = await fetchCountryData();
+        const countrySelect = document.getElementById('countrySelect');
 
-    printCountrySelect(countries, countrySelect);
-    setupGetNeighboursButton();
+        printCountrySelect(countries, countrySelect);
+        setupGetNeighboursButton();
+    } catch (error) {
+        console.error('Error in setupDropDown:', error);
+        alert('An error occurred while setting up the dropdown. Please try again.');
+    }
 };
 
 setupDropDown();
+
+
+
+
+
+
+
+
+
+
+
