@@ -12,7 +12,7 @@ function Institution(location, capacity) {
 }
 
 function Course(description, price) {
-    this.id = Math.floor(Math.random() * 1000);
+    this.id = Math.floor(Math.random() * 1000);                                     //ovde proguglav za random NUMBER  a isto ima za UNIQUE ID so UUID.randomUUID() no togas mislam ke e fiksen
     this.description = description;
     this.price = price;
 
@@ -26,7 +26,7 @@ function Course(description, price) {
 }
 
 function Person(email, phone) {
-    this.id = Math.floor(Math.random() * 1000);
+    this.id = Math.floor(Math.random() * 1000);                          // isto i ovde so math.random radi random number isto mozese so get date() ili Date.now() + Math.random()
     this.email = email;
     this.phone = phone;
 
@@ -116,8 +116,7 @@ try {
 }
 
 
-student.startAcademy(academy);
-student.startSubject(subject);
+
 
 
 
