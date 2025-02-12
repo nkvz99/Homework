@@ -23,7 +23,7 @@ function Course(description, price) {
         this.price = `${this.price} €`;
     };
 
-    this.validatePrice(); 
+    this.validatePrice();
 }
 
 function Person(email, phone) {
@@ -41,9 +41,9 @@ function Person(email, phone) {
 function Academy(name, startDate, endDate, location, capacity) {
     Object.setPrototypeOf(this, new Institution(location, capacity));
     this.name = name;
-    this.startDate = startDate; 
-    this.endDate = endDate; 
-    this.subjects = []; 
+    this.startDate = startDate;
+    this.endDate = endDate;
+    this.subjects = [];
     this.students = [];
 
     this.getNumberOfClasses = function () {
@@ -51,14 +51,14 @@ function Academy(name, startDate, endDate, location, capacity) {
     };
 
     this.PrintStudents = function () {
-        return this.students; 
+        return this.students;
     };
 
     this.PrintSubjects = function () {
         return this.subjects;
     };
 
-    
+
     this.PrintAcademy = function () {
         return {
             name: this.name,
@@ -83,7 +83,7 @@ function Academy(name, startDate, endDate, location, capacity) {
             }))
         };
     };
-    
+
 }
 
 
@@ -92,7 +92,7 @@ function Subject(title, isElective, description, price) {
     this.title = title;
     this.isElective = isElective;
     this.numberOfClasses = 10;
-    this.students = []; 
+    this.students = [];
 
     this.overrideClasses = function (number) {
         if (number < 3) {
@@ -109,7 +109,7 @@ function Student(firstName, lastName, age, email, phone) {
     this.lastName = lastName;
     this.age = age;
     this.completedSubjects = [];
-    this.academy = null; 
+    this.academy = null;
     this.currentSubject = null;
 
     this.startAcademy = function (academy) {
@@ -127,7 +127,7 @@ function Student(firstName, lastName, age, email, phone) {
             return;
         }
         this.currentSubject = subject;
-        subject.students.push(this); 
+        subject.students.push(this);
     };
 
     this.PrintStudent = function () {
@@ -141,6 +141,8 @@ function Student(firstName, lastName, age, email, phone) {
         };
     };
 }
+
+
 
 
 const academy = new Academy('QINSHIFT', '10-01-2024', '10-01-2025', 'Skopje', 100);
@@ -174,8 +176,8 @@ const academyInfo = academy.PrintAcademy();
 console.log("Academy Info:", academyInfo);
 
 
-console.log("Student1",student1);
-console.log("Student2",student2);
+console.log("Student1", student1.PrintStudent());
+console.log("Student2", student2.PrintStudent());
 
 const academySubjects = academy.PrintSubjects()
 console.log("Academy Subjects:", academySubjects)
