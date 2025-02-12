@@ -156,7 +156,7 @@ const subject1 = new Subject('JavaScript', false, 'Advanced JavaScript', 2500);
 const subject2 = new Subject("React", true, "React Basic", 1500);
 
 
-academy.subjects.push(subject1, subject2);
+academy.subjects.push(subject1,subject2);
 
 
 student1.startAcademy(academy);
@@ -168,6 +168,8 @@ student2.startSubject(subject2);
 
 
 subject1.overrideClasses(15);
+subject2.overrideClasses(19);
+
 
 
 
@@ -180,7 +182,8 @@ console.log("Student1", student1.PrintStudent());
 console.log("Student2", student2.PrintStudent());
 
 const academySubjects = academy.PrintSubjects()
-console.log("Academy Subjects:", academySubjects)
+console.log("Academy Subject1:", subject1)
+console.log("Academy Subject2:" , subject2)
 
 
 
