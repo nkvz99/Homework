@@ -5,8 +5,12 @@ function Institution(location, capacity) {
     this.capacity = capacity;
 
     this.validateCapacity = function () {
-        if (this.capacity < 1) {
-            throw new Error(`Invalid capacity: ${this.capacity}. Capacity must be at least 1.`);
+        try {
+            if (this.capacity < 1) {
+                throw new Error(`Invalid capacity: ${this.capacity}. Capacity must be at least 1.`);
+            }
+        } catch (error) {
+            console.error(error.message);
         }
     };
 }
@@ -17,10 +21,14 @@ function Course(description, price) {
     this.price = price;
 
     this.validatePrice = function () {
-        if (this.price < 0) {
-            throw new Error(`Invalid price: ${this.price}. Price cannot be negative.`);
+        try {
+            if (this.price < 0) {
+                throw new Error(`Invalid price: ${this.price}. Price cannot be negative.`);
+            }
+            this.price = `${this.price} €`;
+        } catch (error) {
+            console.error(error.message); 
         }
-        this.price = `${this.price} €`;
     };
 
     this.validatePrice();
@@ -32,8 +40,12 @@ function Person(email, phone) {
     this.phone = phone;
 
     this.validateEmail = function () {
-        if (!this.email.includes('@')) {
-            throw new Error(`Invalid email: ${this.email}. Email must contain '@'.`);
+        try {
+            if (!this.email.includes('@')) {
+                throw new Error(`Invalid email: ${this.email}. Email must contain '@'.`);
+            }
+        } catch (error) {
+            console.error(error.message); 
         }
     };
 }
@@ -57,7 +69,6 @@ function Academy(name, startDate, endDate, location, capacity) {
     this.PrintSubjects = function () {
         return this.subjects;
     };
-
 
     this.PrintAcademy = function () {
         return {
@@ -83,9 +94,7 @@ function Academy(name, startDate, endDate, location, capacity) {
             }))
         };
     };
-
 }
-
 
 function Subject(title, isElective, description, price) {
     Object.setPrototypeOf(this, new Course(description, price));
@@ -95,11 +104,14 @@ function Subject(title, isElective, description, price) {
     this.students = [];
 
     this.overrideClasses = function (number) {
-        if (number < 3) {
-            console.error('Number of classes cannot be smaller than 3.');
-            return;
+        try {
+            if (number < 3) {
+                throw new Error('Number of classes cannot be smaller than 3.');
+            }
+            this.numberOfClasses = number;
+        } catch (error) {
+            console.error(error.message);
         }
-        this.numberOfClasses = number;
     };
 }
 
@@ -113,21 +125,28 @@ function Student(firstName, lastName, age, email, phone) {
     this.currentSubject = null;
 
     this.startAcademy = function (academy) {
-        this.academy = academy;
-        academy.students.push(this);
+        try {
+            if (!academy) throw new Error('Invalid academy');
+            this.academy = academy;
+            academy.students.push(this);
+        } catch (error) {
+            console.error(error.message);
+        }
     };
 
     this.startSubject = function (subject) {
-        if (!this.academy) {
-            console.error('Student is not enrolled in any academy.');
-            return;
+        try {
+            if (!this.academy) {
+                throw new Error('Student is not enrolled in any academy.');
+            }
+            if (!this.academy.subjects.includes(subject)) {
+                throw new Error("Subject is not offered by the academy.");
+            }
+            this.currentSubject = subject;
+            subject.students.push(this);
+        } catch (error) {
+            console.error(error.message);
         }
-        if (!this.academy.subjects.includes(subject)) {
-            console.error("Subject is not offered by the academy.");
-            return;
-        }
-        this.currentSubject = subject;
-        subject.students.push(this);
     };
 
     this.PrintStudent = function () {
@@ -143,59 +162,41 @@ function Student(firstName, lastName, age, email, phone) {
 }
 
 
-
-
 const academy = new Academy('QINSHIFT', '10-01-2024', '10-01-2025', 'Skopje', 100);
 
 
-const student1 = new Student('Zoran', 'Nakov', 25, 'nakovzoran99@gmail.com', '000-000-000');
+const student1 = new Student('Zoran', 'Nakov', 25, 'nakovzoran99gmail.com', '000-000-000'); // test za errorot
 const student2 = new Student("David", "Krstevski", 25, "david_krstevski2004@gmail.com", '+38978-454-252');
 
 
-const subject1 = new Subject('JavaScript', false, 'Advanced JavaScript', 2500);
-const subject2 = new Subject("React", true, "React Basic", 1500);
+student1.validateEmail(); 
+student2.validateEmail(); 
 
+const subject1 = new Subject('JavaScript', false, 'Advanced JavaScript', -2500);  // test za errorot
+const subject2 = new Subject("React", true, "React Basic", 1500); 
 
-academy.subjects.push(subject1,subject2);
-
+academy.subjects.push(subject1, subject2);
 
 student1.startAcademy(academy);
 student2.startAcademy(academy);
 
-
 student1.startSubject(subject1);
 student2.startSubject(subject2);
-
 
 subject1.overrideClasses(15);
 subject2.overrideClasses(19);
 
-
-
-
-
 const academyInfo = academy.PrintAcademy();
 console.log("Academy Info:", academyInfo);
-
 
 console.log("Student1", student1.PrintStudent());
 console.log("Student2", student2.PrintStudent());
 
-const academySubjects = academy.PrintSubjects()
-console.log("Academy Subject1:", subject1)
-console.log("Academy Subject2:" , subject2)
+const academySubjects = academy.PrintSubjects();
+console.log("Academy Subject1:", subject1);
+console.log("Academy Subject2:", subject2);
 
 
-
-try {
-    academy.validateCapacity();
-    subject1.validatePrice();
-    subject2.validatePrice()
-    student1.validateEmail();
-    student2.validateEmail()
-} catch (error) {
-    console.error(error.message);
-}
 
 
 
