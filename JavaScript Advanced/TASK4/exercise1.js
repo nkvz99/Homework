@@ -67,9 +67,23 @@ function Academy(name, startDate, endDate, location, capacity) {
             location: this.location,
             capacity: this.capacity,
             numberOfSubjects: this.subjects.length,
-            numberOfStudents: this.students.length
+            numberOfStudents: this.students.length,
+            students: this.students.map(student => ({
+                fullName: `${student.firstName} ${student.lastName}`,
+                age: student.age,
+                email: student.email,
+                phone: student.phone,
+                currentSubject: student.currentSubject ? student.currentSubject.title : "Not enrolled"
+            })),
+            subjects: this.subjects.map(subject => ({
+                title: subject.title,
+                isElective: subject.isElective,
+                price: subject.price,
+                numberOfClasses: subject.numberOfClasses
+            }))
         };
     };
+    
 }
 
 
