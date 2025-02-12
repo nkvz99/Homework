@@ -187,6 +187,16 @@ console.log("Academy Subject2:" , subject2)
 
 
 
+try {
+    academy.validateCapacity();
+    subject1.validatePrice();
+    subject2.validatePrice()
+    student1.validateEmail();
+    student2.validateEmail()
+} catch (error) {
+    console.error(error.message);
+}
+
 
 
 
