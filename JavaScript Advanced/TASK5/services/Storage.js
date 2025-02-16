@@ -1,16 +1,16 @@
 class Storage {
-    static get(key) {
+    get(key) {
         const data = localStorage.getItem(key);
         return data ? JSON.parse(data) : null;
     }
 
-    static set(key, value) {
+    set(key, value) {
         localStorage.setItem(key, JSON.stringify(value));
     }
 
-    static remove(key) {
+    remove(key) {
         localStorage.removeItem(key);
     }
 }
 
-export{Storage}
+export { Storage };
