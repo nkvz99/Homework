@@ -3,11 +3,11 @@ import { Storage } from "../services/Storage.js";
 
 class Auth {
     constructor() {
-        this.storage = new Storage(); // Create an instance of Storage
+        this.storage = new Storage(); 
         this.users = this.loadUsers();
 
         if (this.users.length === 0) {
-            // Hardcoded data (simulating a db)
+            
             this.users = [
                 new User("John", "Doe", "john.doe@mail.com", "12345"),
                 new User("Jane", "Doe", "jane.doe@mail.com", "p@ssW0rd"),

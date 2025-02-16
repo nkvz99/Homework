@@ -13,17 +13,17 @@ class UI {
         this.messageDiv.style.display = "block";
         this.messageDiv.textContent = message;
 
-        // Remove existing classes
+        
         this.messageDiv.classList.remove("error", "success");
 
-        // Add the appropriate class based on isError
+        
         if (isError) {
             this.messageDiv.classList.add("error");
         } else {
             this.messageDiv.classList.add("success");
         }
 
-        // Hide the message after 2 seconds
+        
         setTimeout(() => {
             this.messageDiv.textContent = "";
             this.messageDiv.style.display = "none";
