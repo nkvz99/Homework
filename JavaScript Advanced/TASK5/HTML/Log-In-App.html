@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Styles/Log-In-App-style.css" />
+    <link rel="stylesheet" href="/styles/Log-In-App.css">
+
+
+
     <title>Login Flow</title>
 </head>
+
 <body>
     <h1>Login System Simulator</h1>
 
     <!-- Login Form -->
     <form id="login-form">
         <h2>Login</h2>
-        <input type="email" placeholder="Email" id="login-email"/>
+        <input type="email" placeholder="Email" id="login-email" />
         <input type="password" placeholder="Password" id="login-password" />
         <button>Login</button>
         <button type="button" id="register-link">Don't have an account? Register here</button>
@@ -26,7 +31,7 @@
         <input type="email" placeholder="Email" id="register-email" />
         <input type="password" placeholder="Password" id="register-password" />
         <button>Register</button>
-        <button type="button" placeholder="Back to LogIn"  id="back-to-login">Back to Login</button>
+        <button type="button" placeholder="Back to LogIn" id="back-to-login">Back to Login</button>
     </form>
 
     <main id="main">
@@ -34,10 +39,12 @@
         <button id="logout-btn">Logout</button>
         <h2>Welcome to our web application</h2>
     </main>
-  
+
 
     <!-- Message section -->
     <div class="message" id="message"></div>
-    <script type="module" src="/Main/main.js"></script>
+    <script type="module" src="/main/main.js" ></script>
+
 </body>
+
 </html>

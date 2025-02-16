@@ -1,4 +1,3 @@
-
 import { Auth } from '../services/Auth.js';
 import { UI } from '../services/UI.js';
 import { App } from '../services/App.js';
