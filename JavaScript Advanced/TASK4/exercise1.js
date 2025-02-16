@@ -1,6 +1,9 @@
+function generateId() {
+    return Math.floor(Math.random() * 1000);
+}
 
 function Institution(location, capacity) {
-    this.id = Math.floor(Math.random() * 1000);
+    this.id = generateId();
     this.location = location;
     this.capacity = capacity;
 
@@ -16,7 +19,7 @@ function Institution(location, capacity) {
 }
 
 function Course(description, price) {
-    this.id = Math.floor(Math.random() * 1000);
+    this.id = generateId();
     this.description = description;
     this.price = price;
 
@@ -35,7 +38,7 @@ function Course(description, price) {
 }
 
 function Person(email, phone) {
-    this.id = Math.floor(Math.random() * 1000);
+    this.id = generateId();
     this.email = email;
     this.phone = phone;
 
@@ -71,6 +74,20 @@ function Academy(name, startDate, endDate, location, capacity) {
     };
 
     this.PrintAcademy = function () {
+        const students = this.students.map(({ firstName, lastName, age, email, phone, currentSubject }) => ({
+            fullName: `${firstName} ${lastName}`,
+            age,
+            email,
+            phone,
+            currentSubject: currentSubject ? currentSubject.title : "Not enrolled",
+        }));
+    
+        const subjects = this.subjects.map(({ title, isElective, price, numberOfClasses }) => ({
+            title,
+            isElective,
+            price,
+            numberOfClasses,
+        }));
         return {
             name: this.name,
             startDate: this.startDate,
@@ -79,21 +96,11 @@ function Academy(name, startDate, endDate, location, capacity) {
             capacity: this.capacity,
             numberOfSubjects: this.subjects.length,
             numberOfStudents: this.students.length,
-            students: this.students.map(student => ({
-                fullName: `${student.firstName} ${student.lastName}`,
-                age: student.age,
-                email: student.email,
-                phone: student.phone,
-                currentSubject: student.currentSubject ? student.currentSubject.title : "Not enrolled"
-            })),
-            subjects: this.subjects.map(subject => ({
-                title: subject.title,
-                isElective: subject.isElective,
-                price: subject.price,
-                numberOfClasses: subject.numberOfClasses
-            }))
+            students,
+            subjects,
         };
     };
+    
 }
 
 function Subject(title, isElective, description, price) {
