@@ -74,7 +74,8 @@ function Academy(name, startDate, endDate, location, capacity) {
     };
 
     this.PrintAcademy = function () {
-        const students = this.students.map(({ firstName, lastName, age, email, phone, currentSubject }) => ({
+        const students = this.students.map(({ id, firstName, lastName, age, email, phone, currentSubject }) => ({
+            id,
             fullName: `${firstName} ${lastName}`,
             age,
             email,
@@ -82,13 +83,16 @@ function Academy(name, startDate, endDate, location, capacity) {
             currentSubject: currentSubject ? currentSubject.title : "Not enrolled",
         }));
     
-        const subjects = this.subjects.map(({ title, isElective, price, numberOfClasses }) => ({
+        const subjects = this.subjects.map(({ id, title, isElective, price, numberOfClasses }) => ({
+            id,
             title,
             isElective,
             price,
             numberOfClasses,
         }));
+    
         return {
+            id: this.id, 
             name: this.name,
             startDate: this.startDate,
             endDate: this.endDate,
@@ -100,6 +104,7 @@ function Academy(name, startDate, endDate, location, capacity) {
             subjects,
         };
     };
+    
     
 }
 
@@ -158,6 +163,7 @@ function Student(firstName, lastName, age, email, phone) {
 
     this.PrintStudent = function () {
         return {
+            id: this.id, 
             fullName: `${this.firstName} ${this.lastName}`,
             age: this.age,
             email: this.email,
@@ -166,6 +172,7 @@ function Student(firstName, lastName, age, email, phone) {
             currentSubject: this.currentSubject ? this.currentSubject.title : "Not enrolled"
         };
     };
+    
 }
 
 
