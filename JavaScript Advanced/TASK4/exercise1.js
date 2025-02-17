@@ -200,8 +200,8 @@ student2.startSubject(subject2);
 subject1.overrideClasses(15);
 subject2.overrideClasses(19);
 
-const academyInfo = academy.PrintAcademy();
-console.log("Academy Info:", academyInfo);
+// const academyInfo = academy.PrintAcademy();
+// console.log("Academy Info:", academyInfo);
 
 console.log("Student1", student1.PrintStudent());
 console.log("Student2", student2.PrintStudent());
@@ -209,6 +209,14 @@ console.log("Student2", student2.PrintStudent());
 const academySubjects = academy.PrintSubjects();
 console.log("Academy Subject1:", subject1);
 console.log("Academy Subject2:", subject2);
+
+const academyInfo = academy.PrintAcademy();
+
+const { students, subjects} = academyInfo;
+
+
+console.log("Students List:", students);
+console.log("Subjects List:", subjects);
 
 
 
