@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Countripedia</title>
+</head>
+<body>
+
+<div class="header">
+    <div>
+        <h1>Countrypedia</h1>
+        <p class="subheader">This is a simple app for gathering information about countries in the World.</p>
+    </div>
+    <div>
+        <button id="btnEurope" class="button primary">Countries in Europe</button>
+        <button id="btnNeighbors" class="button primary">Our neighbors</button>
+        <button id="btnMacedonia" class="button primary">Macedonia</button>
+    </div>
+</div>
+
+<div class="searchDivContainer">
+    <div id="searchDiv">
+        <input type="text" placeholder="Enter country name or code" id="searchInput" class="input">
+        <div>
+            <button type="button" id="searchBtn" class="button primary" >Search</button>
+            <button type="button" id="resetBtn" class="button secondary">Reset</button>
+        </div>
+    </div>
+</div>
+
+<div class="resultDivContainer">
+    <div id="notification"></div>
+    <div class="row" id="cardContainer"></div>
+</div>
+
+<script type="module" src="main.js"></script>
+</body>
+</html>
