@@ -48,7 +48,7 @@ function main() {
 	updateTask("908bc4d4-df4e-499b-880b-cdb9a23834ee", "do homework3", "Biologija")
 	markTaskAsCompleted("908bc4d4-df4e-499b-880b-cdb9a23834ee")
 	
-	
+	console.log(readAllTasks())
 	
 	
 	

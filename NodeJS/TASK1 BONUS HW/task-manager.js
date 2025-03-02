@@ -12,9 +12,11 @@ const __dirname = path.dirname(___filename);
 const tasksFile = path.join(__dirname, 'data', 'tasks.json'); // Path to the Database
 
 // Read all tasks from the database
+
 export function readAllTasks() {
-	const tasks = fs.readFileSync(tasksFile, 'utf-8');
-	return JSON.parse(tasks);
+	const tasks = fs.readFileSync(tasksFile);
+	const parsedTasks = JSON.parse(tasks);
+	return parsedTasks;
 }
 
 // Get a single task
