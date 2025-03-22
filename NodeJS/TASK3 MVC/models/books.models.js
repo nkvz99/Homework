@@ -1,29 +1,37 @@
-
 import { readFile, writeFile } from "../services/files.services.js";
 
-const BOOKS_FILE = "books.json"
+const BOOKS_FILE = "books.json";
 
 const Book = {
-    async createBook(bookData){
+    async createBook(bookData) {
         const books = await readFile(BOOKS_FILE);
         const newBook = { id: books.length + 1, ...bookData };
         books.push(newBook);
         await writeFile(BOOKS_FILE, books);
-        return newBook
-
+        return newBook;
     },
-    async getAllBooks(){
+
+    async getAllBooks() {
         return await readFile(BOOKS_FILE);
     },
-    async getBookById(id){
+
+    async getBookById(id) {
         const books = await readFile(BOOKS_FILE);
-        return books.find(book => book.id === parseInt(id))
+        return books.find(book => book.id === parseInt(id));
     },
-    async deleteBook(id){
+
+    async deleteBook(id) {
         const books = await readFile(BOOKS_FILE);
-        const deleteBooks = books.filter(book => book.id !== parseInt(id));
-        await writeFile(BOOKS_FILE, deleteBooks)
+        const filteredBooks = books.filter(book => book.id !== parseInt(id));
+        
+        if (filteredBooks.length === books.length) {
+            return false; // No book was deleted
+        }
+
+        await writeFile(BOOKS_FILE, filteredBooks);
+        return true;
     },
+
     async getStats() {
         const books = await readFile(BOOKS_FILE);
         if (!books.length) return { error: "No books found" };
@@ -41,7 +49,6 @@ const Book = {
 
         return { totalBooks: books.length, booksPerAuthor, oldestBook, newestBook };
     }
-    
-}
+};
 
-export default Book
+export default Book;

@@ -1,11 +1,14 @@
-import { appendFile } from "../services/files.services.js";
+import { appendLog } from "../services/files.services.js";
 
-export default function logger(req, res, next) {
-	
-	const timestamp = new Date().toISOString();
+export default async function logger(req, res, next) {
+    const timestamp = new Date().toISOString();
+    const log = `${timestamp} ${req.method} ${req.url}`;
 
-	const log = `${timestamp} ${req.method} ${req.url}\n`; 
+    try {
+        await appendLog("calls.log", log);
+    } catch (error) {
+        console.error("Error logging request:", error);
+    }
 
-	appendFile('calls.log', log); 
-	next(); 
+    next();
 }

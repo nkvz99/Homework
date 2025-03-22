@@ -1,52 +1,60 @@
-import Book from "../models/books.models.js"
-import { readFile } from "../services/files.services.js";
+import Book from "../models/books.models.js";
 
 const BookController = {
     async createBook(req, res) {
-        const newBook = await Book.createBook(req.body);
-        res.status(201).json(newBook);
+        const { title, author, year } = req.body;
+
+        if (!title || !author || !year || typeof year !== "number") {
+            return res.status(400).json({ message: "Invalid book data. Title, author, and year (as a number) are required." });
+        }
+
+        const newBook = await Book.createBook({ title, author, year });
+        res.status(201).json({ message: "Book created successfully", book: newBook });
     },
 
     async getBooks(req, res) {
-        const books = await readFile("books.json");
+        const books = await Book.getAllBooks();
         const { author } = req.query;
-    
-        console.log("Query Author:", author); 
-    
+
         if (author) {
             const filteredBooks = books.filter(book => 
                 book.author && book.author.toLowerCase().includes(author.toLowerCase())
             );
-    
-            console.log("Filtered Books:", filteredBooks); 
-    
             return res.json(filteredBooks);
         }
-    
+
         res.json(books);
     },
 
     async getBookById(req, res) {
-        const { params: { id } } = req;
+        const { id } = req.params;
         const book = await Book.getBookById(id);
+
         if (!book) return res.status(404).json({ message: "Book not found" });
+
         res.json(book);
     },
 
     async deleteBook(req, res) {
-        const { params: { id } } = req;
-        await Book.deleteBook(id);
-        res.sendStatus(204);
+        const { id } = req.params;
+        const deleted = await Book.deleteBook(id);
+
+        if (!deleted) {
+            return res.status(404).json({ message: "Book not found" });
+        }
+
+        res.sendStatus(204); 
     },
 
     async getStats(req, res) {
         const stats = await Book.getStats();
-        if (stats.error) return res.status(404).json(stats);
+
+        if (stats.error) {
+            return res.status(404).json(stats);
+        }
+
         res.json(stats);
     }
 };
 
 export default BookController;
-
-
-
