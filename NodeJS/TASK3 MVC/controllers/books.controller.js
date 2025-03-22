@@ -40,12 +40,13 @@ const BookController = {
         const { id } = req.params;
         if (!id) return res.status(400).json({message:"Book ID is required"});
         const deletedBook = await Book.deleteBook(id);
-        if (!deletedBook) return res.status(404).json({message:"Book not found"});
-        res.json({message:"Book deleted succesfully", deletedBook})
+        if(!deletedBook){
+            return res.status(404).json({message:"Book not found"})
+        }
+        res.json({message:"Book deleted successfully", deletedBook})
     }catch(error){
-        console.error("Error deleting book:", error);
+        console.error("Error deleting book:", error)
         res.status(500).json({message:"Internal Server Error"})
-
     }
     },
 
