@@ -17,13 +17,17 @@ export async function readFile(fileName) {
 
 export async function writeFile(fileName, data) {
     try {
+        console.log(`Attempting to write to file: ${fileName}`);
         await fs.writeFile(filePath(fileName), JSON.stringify(data, null, 2));
+        console.log(`Successfully wrote to file: ${fileName}`);
+        
         await appendLog("logs.txt", `[${new Date().toISOString()}] File ${fileName} updated`);
     } catch (error) {
-        console.error(`Error writing file ${fileName}:`, error);
+        console.error(`Error writing file ${fileName}:`, error.message);
         throw new Error(`Cannot write to file: ${fileName}`);
     }
 }
+
 
 export async function appendLog(fileName, log) {
     try {

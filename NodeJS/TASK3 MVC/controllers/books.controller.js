@@ -36,14 +36,17 @@ const BookController = {
     },
 
     async deleteBook(req, res) {
+        try{
         const { id } = req.params;
-        const deleted = await Book.deleteBook(id);
+        if (!id) return res.status(400).json({message:"Book ID is required"});
+        const deletedBook = await Book.deleteBook(id);
+        if (!deletedBook) return res.status(404).json({message:"Book not found"});
+        res.json({message:"Book deleted succesfully", deletedBook})
+    }catch(error){
+        console.error("Error deleting book:", error);
+        res.status(500).json({message:"Internal Server Error"})
 
-        if (!deleted) {
-            return res.status(404).json({ message: "Book not found" });
-        }
-
-        res.sendStatus(204); 
+    }
     },
 
     async getStats(req, res) {

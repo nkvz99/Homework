@@ -22,14 +22,13 @@ const Book = {
 
     async deleteBook(id) {
         const books = await readFile(BOOKS_FILE);
-        const filteredBooks = books.filter(book => book.id !== parseInt(id));
-        
-        if (filteredBooks.length === books.length) {
-            return false; // No book was deleted
+        const bookIndex = books.findIndex(book => book.id === parseInt(id));
+        if(bookIndex === -1){
+            throw new Error("Book not found");
         }
-
-        await writeFile(BOOKS_FILE, filteredBooks);
-        return true;
+        const deletedBook = books.splice(bookIndex, 1)[0]
+        await writeFile(BOOKS_FILE,books);
+        return deletedBook
     },
 
     async getStats() {
