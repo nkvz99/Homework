@@ -1,4 +1,4 @@
-import Recipe from "../models/recipe.model.js.js";
+import Recipe from "../models/recipe.model.js";
 import mongoose from "mongoose";
 const RecipeController = {
     async getAllRecipes(req, res) {
@@ -34,11 +34,16 @@ const RecipeController = {
     async deleteRecipeById(req, res) {
         try {
             const deletedRecipe = await Recipe.findByIdAndDelete(req.params.id);
-            if (!deletedRecipe) return res.status(404).json({ error: "Recipe not found" });
+            if (!deletedRecipe) {
+                return res.status(404).json({ error: "Recipe not found" });
+            }
     
             res.json({ message: "Recipe deleted successfully", deletedRecipe });
-        } catch {
-            res.status(400).json({ error: "Invalid ID format" });
+        } catch (error) {
+            if (error.name === "CastError") {
+                return res.status(400).json({ error: "Invalid ID format" }); 
+            }
+            res.status(500).json({ error: "Internal Server Error" }); 
         }
     },
     async getReceipeById(req, res) {
