@@ -1,0 +1,483 @@
+{
+	"info": {
+		"_postman_id": "52a2f0ac-d904-4cb5-8667-4452a6bdb30a",
+		"name": "ZORAN HOMEWORK",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42864479"
+	},
+	"item": [
+		{
+			"name": "BOOKS NESTJS",
+			"item": [
+				{
+					"name": "GET ALL BOOKS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Book",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Aleksandar Makedonski\",\r\n    \"author\": \"Jordan Plevnes\",\r\n    \"price\": \"950\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Books by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/books/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"books",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1746385591962"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE BOOK",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Updated Book TEST\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/books/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"books",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1746385591962"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Book",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/books/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"books",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1746385950119"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Query Min Price",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "HOMEWORK NESTJS 04 USERS / POSTS",
+			"item": [
+				{
+					"name": "Users",
+					"item": [
+						{
+							"name": "GET ALL USERS",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/users",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CREATE USER",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"name\": \"Ivo\",\r\n        \"email\": \"ivo123@gmail.com\",\r\n        \"role\": \"admin\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/users",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE USER",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/users/:id",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UPDATE USER",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"vgatest\",\r\n    \"role\": \"dsa\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/users/:id",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET ALL POSTS BY USER ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/users/posts/:id",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"posts",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET ONE USER BY ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/users/:id",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "POSTS",
+					"item": [
+						{
+							"name": "GET ALL POSTS",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/posts",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CREATE POST",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \" Hello \",\r\n    \"content\": \"Hello from QINSHIFT\",\r\n    \"authorId\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/posts",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET ALL POSTS BY AUTHOR ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/posts/author/:authorId",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"author",
+										":authorId"
+									],
+									"variable": [
+										{
+											"key": "authorId",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET ONE  POST BY ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/posts/:id",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UPDATE POST",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"content\": \"UPDATED\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/posts/:id",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE POST",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/posts/:id",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
