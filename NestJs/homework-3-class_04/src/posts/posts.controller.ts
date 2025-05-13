@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put } from '@nestjs/common';
+import { BadRequestException, Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put } from '@nestjs/common';
 import { PostsService } from './posts.service';
 import { CreatePost, UpdatePost } from 'src/common/types/posts.interface';
 //localhost:3000/posts
@@ -12,6 +12,10 @@ export class PostsController {
     }
     @Post()
     create(@Body() body: CreatePost) {
+        if(!body.title) throw new BadRequestException('Title is required.');
+        if(!body.content) throw new BadRequestException('Content is required.');
+        if(!body.authorId) throw new BadRequestException('AuthorId is required.');
+
         return this.postsService.create(body);
     }
     @Get('/:id')

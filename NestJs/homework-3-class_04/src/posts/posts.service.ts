@@ -18,15 +18,13 @@ export class PostsService {
         return this.posts;
     }
     create(body: CreatePost): Post {
-        const author = this.UsersService.findOne(body.authorId);
-        if (!author) {
-            throw new BadRequestException('Author not found');
+        if (!this.UsersService.findOne(body.authorId)) {
+            throw new NotFoundException(`User with id ${body.authorId} not found`);
         }
         const newPost = {
             id: this.posts.length + 1,
             ...body,
             
-            // author,
         } satisfies Post;   
         this.posts.push(newPost);
         return newPost;
@@ -34,7 +32,7 @@ export class PostsService {
     findOne(id: number): Post {
         const post = this.posts.find((p) => p.id === id);
         if (!post) {
-            throw new BadRequestException(`Post with id ${id} not found`);
+            throw new NotFoundException(`Post with id ${id} not found`);
         }
         return post;
     }
@@ -43,18 +41,21 @@ export class PostsService {
         return this.posts.filter((p) => p.authorId === authorId);
     }
 
-    update(id: number , body: UpdatePost): Post {
-        const postIndex = this.posts.findIndex((p) => p.id === id);
-        if (postIndex < 0) {
-            throw new NotFoundException(`Post with id ${id} not found`);
+update(id: number, body: UpdatePost): Post {
+    const postIndex = this.posts.findIndex((p) => p.id === id);
+    if (postIndex < 0) {
+        throw new NotFoundException(`Post with id ${id} not found`);
     }
-    const updatedPost = {
-        ...this.posts[postIndex],
-        ...body,
-        id,
-    }
-    this.posts[postIndex] = updatedPost;
-    return updatedPost;
+    
+    const currentPost = { ...this.posts[postIndex] };
+
+    currentPost.title = body.title ?? currentPost.title;
+    currentPost.content = body.content ?? currentPost.content;
+    
+    currentPost.id = id;
+    
+    this.posts[postIndex] = currentPost;
+    return currentPost;
 }
 delete(id: number): void {
     const postIndex = this.posts.findIndex((p) => p.id === id);
