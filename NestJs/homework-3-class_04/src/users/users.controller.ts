@@ -33,6 +33,27 @@ export class UsersController {
     }
     @Put('/:id')
     update(@Param('id', ParseIntPipe) id: number, @Body() body: UpdateUser) {
+        if (!body.name && !body.email && !body.role) {
+            throw new BadRequestException('At least one field is required to update.');
+            }
+
+        if (body.name !== undefined) {
+            if (body.name === '') {
+                throw new BadRequestException('Name cannot be empty.');
+            }
+
+        }
+
+        if (body.email !== undefined && !body.email.includes('@')) {
+            throw new BadRequestException('Invalid email format.');
+        }
+
+        if (body.role !== undefined) {
+            if (body.role !== 'user' && body.role !== 'admin') {
+                throw new BadRequestException('Role must be either "user" or "admin".');
+            }
+        }
+
         return this.usersService.update(id, body);
     }
     @Delete('/:id')
