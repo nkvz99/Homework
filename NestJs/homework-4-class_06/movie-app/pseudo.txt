@@ -1,0 +1,43 @@
+npm install @nestjs/typeorm typeorm pg class-validator class-transformer @nestjs/swagger @nestjs/config     DONE 
+nest new movies-app                                                        DONE
+
+
+Create a PostgreSQL data base for the movie app               = movies     DONE
+Set up TypeORM configuration with proper enviroment variables      =       DONE
+Create a separata DatabaseModul for TypeORM configuration                  DONE 
+
+
+nest generate module movies 
+nest generate controller movies --no-spec
+nest generate service movies --no-spec 
+
+
+
+Next to create MovieCreateDto with next property                           DONE 
+- title (string)
+- description (string)
+- release_year (number)
+- genre ENUM [] / IMPORT FROM common/types/genre.enum.ts 
+- duration (number, in minutes)
+- rating (number, 1-10)
+- poster_url (string, optional)
+
+Next to create Genre Enum with next property                                DONE 
+- action , comedy , drama , horror , sci_fi , romance , 
+documentary , animation , thriller , fantasy 
+
+Next to create Movie Update Dto extends all from Movie Create Dto ( PartialType ) extends all but optionaly   DONE 
+Next to create movie.entity.ts                             DONE 
+To create routes , methods CRUD 
+
+
+CREATE METHOD -- DONE 
+GET ALL MOVIE METHOD -- DONE
+FIND ONE MOVIE BY UUID -- DONE 
+
+
+
+NEXT TO DO UPDATE METHOD   -- DONE 
+DELETE METHOD              -- DONE 
+
+http://localhost:3000/api             - FOR SWAGGER LINK 
