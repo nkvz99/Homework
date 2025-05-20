@@ -83,6 +83,8 @@ export class Movie {
     })
     @Column({
         type: 'decimal',
+        precision:3,
+        scale: 1,
         nullable: false,
     })
     rating: number;
@@ -93,7 +95,7 @@ export class Movie {
         example: 'https://example.com/image.jpg',
     })
     @Column({
-        type: String,
+        type: "varchar",
         nullable: true,
         name: 'poster_url',
     })

@@ -37,7 +37,32 @@ FIND ONE MOVIE BY UUID -- DONE
 
 
 
-NEXT TO DO UPDATE METHOD   -- DONE 
-DELETE METHOD              -- DONE 
+NEXT TO DO - UPDATE METHOD              -- DONE 
+NEXT TO DO - DELETE METHOD              -- DONE 
+
+NEXT FIND ALL METHOD TO DO INTO FILTERING AND SORT METHOD 
+
+NEXT TO CREATE ENUM movie-sorty-by.enum.ts FILE  and define the search filter    DONE 
+    Title =  'title'
+    ReleaseYear = 'releaseYear'
+    Genre = 'genre'
+    Rating = 'rating'
+
+
+
+ NEXT TO  CREATE ENUM  SORT DIRECTION sort-direction.enum.ts FILE   DONE 
+
+    ASC = 'ASC'
+    DESC = 'DESC'
+
+NEXT TO CREATE DTO FOR PAGINATION PaginatedResponseDto    --      DONE
+payload : T[]           - type array
+total : number          - type number 
+
+NEXT TO CREATE movie-query.dto.ts FILE to use for 
+
 
 http://localhost:3000/api             - FOR SWAGGER LINK 
+
+
+

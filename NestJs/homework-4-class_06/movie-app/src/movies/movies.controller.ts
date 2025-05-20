@@ -1,9 +1,11 @@
-import {  Body, Controller, Delete, Get, HttpCode, HttpStatus, Param,  Patch, Post } from '@nestjs/common';
+import { PaginatedResponseDto } from './../common/dto/paginated-response.dto';
+import {  Body, Controller, Delete, Get, HttpCode, HttpStatus, Param,  Patch, Post, Query } from '@nestjs/common';
 import { ApiBadRequestResponse, ApiCreatedResponse, ApiNoContentResponse, ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { MoviesService } from './movies.service';
 import { Movie } from './movies.entity';
 import { MovieCreateDto } from './dtos/movie-create.dto';
 import { MovieUpdateDto } from './dtos/movie-update.dto';
+import { MovieQueryDto } from './dtos/movie-query.dto';
 
 
 
@@ -28,14 +30,21 @@ export class MoviesController {
 
     @Get()
     @ApiOperation({
-        summary: 'Get all movies',
+        summary: 'Search movies',
     })
     @ApiOkResponse({
-        type: [Movie],
+        type: PaginatedResponseDto<Movie>,
+        description: 'Filtered, paginated and sorted movies'
     })
-    findAll(): Promise<Movie[]> {
-        return this.moviesService.findAll();
+    searchMovies(
+        @Query() query: MovieQueryDto,): Promise<PaginatedResponseDto<Movie>> {
+        return this.moviesService.filterMovies(query);
     }
+
+    // THIS IS THE OLD WAY OF DOING IT FOR GET ALL MOVIES ONLY TO CHANGE WITH searchMovies
+    // findAll(): Promise<Movie[]> {
+    //     return this.moviesService.findAll();
+    // }
 
     @Get('/:id')
     findOne(@Param('id') id: string): Promise<Movie> {
