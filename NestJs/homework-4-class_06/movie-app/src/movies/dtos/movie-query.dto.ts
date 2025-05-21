@@ -42,7 +42,7 @@ export class MovieQueryDto {
     @Transform(({ value }) => {
         // Handle different formats of incoming data
         if (value === undefined || value === null) {
-            return null;
+            return undefined;
         }
         // If already an array, return it
         if (Array.isArray(value)) {
