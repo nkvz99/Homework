@@ -1,0 +1,105 @@
+1. nest new 'Intergalactic Zoo Management API'     - TO INITIALIZE NEW PROJECT -> integralactic-zoo-managment-api   - DONE ✅
+2. next to create DATABASE in pgAdmin 4  and name it -> intergalactic_zoo                                           - DONE ✅
+
+3. next to generate module creatures     -> nest generate module creatures                                          - DONE ✅
+4. next to generate controller creatures -> nest generate controller creatures                                      - DONE ✅
+5. next to generate service creatures    -> nest generate service creatures                                         - DONE ✅
+6. next to create file for entity in creatures -> creatures.entity.ts                                               - DONE ✅
+
+7. next to create the .env file and insert DB_HOST , DB_PORT , DB_USERNAME , DB_PASSWORD , DB_ NAME                 - DONE ✅
+8. next to insert into .env file Application Configuration                                                          - DONE ✅
+9. next to insert into .env file Authentication Configuration                                                       - DONE ✅
+
+10. next to generate module data base -> nest generate module database                                              - DONE ✅
+
+11. next to install packages                                                                                        - DONE ✅
+   - `npm install typeorm @nestjs/typeorm pg class-validator class-transformer
+   @nesjs/jwt @nestjs/passport passport passport-jwt bcrypt @nestjs/swagger 
+   @nestjs/config`
+
+   - `npm install -D @types/bcrypt`
+
+
+type orm -  Object Relational Mapping - Biblioteka za TypeScript/Node.js - Ovozmozuva rabota so bazi na podatoci preku TypeScript klasi i objekti.
+nestjs/typeorm - Oficijalen NestJs modul za integracija na TypeORM , dodava podrska za vnedruvanje Dependency Injection na TypeORM repozitoriumi
+pg - Potreben za TypeORM za da se povrze so PostgreSQL baza.
+class-validator   - Validacija na DTO koristejki dekoratori, korisno za validacija na vlezni podatoci.
+class-transformer  - Transformira objekti vo klasi i obratno , korino za pretvaranje na JSON vo instancii od klasi i obratno.
+nestjs/jwt   - generira i validira JWT ( JSON Web Tokens ) vo NestJs - Korisno za avtentikacija (logiranje na korisnici)
+nestjs/passport + passport + passport-jwt - Ovozmozuva strategii za avtentikacija(JWT , OAuth , Local itkn) passport-jwt e specificna strategija za JWT validacija
+bcrypt - za hesiranje na lozinki pred cuvanje vo baza
+nestjs/swagger - avtomatska generacija na swagger dokumentacija , korisno za API testiranje i klientska komunikacija
+nestjs/config - upravuvanje i citanje na .env fajlovi .
+
+-D @types/bcrypt - ovie dev dependencies paketi se potrebni samo za vreme na razvoj ( ne se vkluceni vo production build )
+ja instalira TypeScript definicijata za bcrypt bibliotekata
+✅ Автодополнување во IDE (VSCode, WebStorm).
+✅ Грешки во време на компајлирање ако се користат погрешни аргументи.
+✅ Подобар developer experience при работа со bcrypt функции.
+@types/bcrypt е неопходен ако користите TypeScript и bcrypt. Овозможува:
+Безбеден код (TypeScript проверки).
+Подобро искуство при развој (автодополнување).
+Стандардна практика во NestJS/TypeScript прoекти.
+Инсталирајте го секогаш кога работите со bcrypt!
+
+
+12. To configure  database.module.ts                                                                                  - DONE ✅  
+
+13. In every APP we start with AUTHENTICATION FIRST 
+   - next to generate authmodule -> nest generate module auth                                                         - DONE ✅
+
+14. next to generate users module     -> nest generate module users                                                   - DONE ✅
+15. next to generate users service    -> nest generate service users                                                  - DONE ✅
+16. next to generate users controller -> nest generate controller users                                               - DONE ✅
+
+17. next to create in users folder user entity  users.entity.ts                                                       - DONE ✅
+18. to define the user entity into users.entity.ts && BeforeInsert , comparePW , hash pw to define also               - DONE ✅
+19. to defile ROLES that we can use in users.entity.ts  
+    - create one common folder into this folder create one folder types , and file role.enum.ts and define the ROLES for users   - DONE ✅
+
+20. to configure and set main.ts file to enable swagger - DONE ✅
+ 
+21. next to create auth folder for Authentication       - DONE ✅
+
+22. into the folder auth to create file for auth dto auth.dto.ts                                                      - DONE ✅
+23. next to define dto for auth with Login Dto and Register dto what we need for user to login and Register           - DONE ✅
+24. first we define login dto , and after that register extends all from login                                        - DONE ✅
+
+
+25. next to create in usercontroller register route , and into service register method using @Post                       - DONE ✅
+26. also to check in service if the user exist , and also to hash the password using bcrypt                           - DONE ✅
+
+27. to create login route in controller , and into service login method using @Post                                     - DONE ✅
+   - first we search for user , if user doesnt exist by email then we throw error.
+   - second we check if the password are matching , if not then throw error.
+   - third we generate token , access token and refresh token.
+   - then we save the refresh token in database.
+   - we return info for user , accesstoken and refresh token.
+
+ 28. refresh token method if the access token expires , then we create refresh token.                                   - DONE ✅
+ 
+29. Next to define creatuers in creatures.entity.ts file                                    - DONE ✅
+
+30. Next to create DTO folder into creatures folder and name it create-creature.dto.ts     - DONE ✅
+     - added documentation for SWAGGER TOO 
+
+
+31. Next to create methods in creatures.service.ts and routes in the controller  
+   -  METHOD @POST - to create a creature                - DONE ✅
+   -  METHOD @GET - to gett all creatures                - DONE ✅
+   -  METHOD @GET(/:id) - to get creature by id     
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
