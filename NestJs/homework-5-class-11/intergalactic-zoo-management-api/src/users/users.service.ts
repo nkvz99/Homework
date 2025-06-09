@@ -68,10 +68,11 @@ export class UserService {
       expiresIn: process.env.JWT_REFRESH_EXPIRES_IN,
     });
 
-    await this.userRepository.update(existingUser.id, { refreshToken });
-    const { refreshToken: _, ...userWithoutRefreshToken } = existingUser;
+    await this.userRepository.update({id: existingUser.id}, { refreshToken });
+    const { password: _,refreshToken: __, ...userWithoutSensitiveData } = existingUser;
+    
     return {
-      user: userWithoutRefreshToken,
+      user: userWithoutSensitiveData,
       accessToken,
       refreshToken,
     };
@@ -121,6 +122,7 @@ export class UserService {
     });
 
     const { refreshToken: _, ...userWithoutRefreshToken } = existingUser;
+    
     return {
       user: userWithoutRefreshToken,
       accessToken,

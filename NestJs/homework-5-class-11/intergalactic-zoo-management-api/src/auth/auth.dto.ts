@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { Transform } from "class-transformer";
+
 import { IsEmail, IsEnum, IsNotEmpty, IsString, IsStrongPassword } from "class-validator";
 import { Role } from "src/common/types/role.enum";
 
@@ -10,6 +10,8 @@ export class LoginDto{
         example: 'john.doe@test.com'
     })
     email: string;
+
+
     
     @IsString()
     @ApiProperty({

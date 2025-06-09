@@ -1,5 +1,6 @@
 import { Role } from './../common/types/role.enum';
 import { ApiProperty } from "@nestjs/swagger";
+
 import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
     

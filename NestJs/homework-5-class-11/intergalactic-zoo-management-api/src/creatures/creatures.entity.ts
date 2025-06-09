@@ -1,6 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { DangerLevel } from "src/common/types/dangerLevel.enum";
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity('creatures')
 export class Creature {
@@ -73,4 +73,11 @@ export class Creature {
         description: 'Creature last update timestamp',
     })
     updatedAt: Date;
+    
+
+    @DeleteDateColumn({
+        name: 'deleted_at',
+    })
+    // no need for Api Property as it will not be returned ever
+    deletedAt: Date;
 }
