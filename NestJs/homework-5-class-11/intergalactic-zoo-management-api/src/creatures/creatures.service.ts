@@ -1,3 +1,4 @@
+import { CreatureUpdateDto } from './dto/update-creature.dto';
 import { CreatureCreateDto } from './dto/create-creature.dto';
 import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -36,16 +37,16 @@ export class CreaturesService {
         return creature;
     }
 
-    async update(id: string, CreatureCreateDto: CreatureCreateDto): Promise<Creature> {
+    async update(id: string, CreatureUpdateDto: CreatureUpdateDto): Promise<Creature> {
         await this.findOneById(id);
 
         const existingCreature = await this.creatureRepository.findOneBy({
-            name: CreatureCreateDto.name,
+            name: CreatureUpdateDto.name,
         });
         if (existingCreature && existingCreature.id !== id) {
-            throw new ConflictException(`Creature with name ${CreatureCreateDto.name} already exists.`);
+            throw new ConflictException(`Creature with name ${CreatureUpdateDto.name} already exists.`);
         }
-        await this.creatureRepository.update(id, CreatureCreateDto);
+        await this.creatureRepository.update(id, CreatureUpdateDto);
         return this.findOneById(id);
         
     }

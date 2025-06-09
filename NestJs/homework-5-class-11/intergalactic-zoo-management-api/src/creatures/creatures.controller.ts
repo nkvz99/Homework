@@ -81,8 +81,8 @@ export class CreaturesController {
     })
     @UseGuards(JwtAuthGuard , RolesGuard)
     @Roles(Role.Zookeeper)
-    update(@Param('id')id: string, @Body() creatureCreateDto: CreatureCreateDto): Promise<Creature> {
-        return this.creaturesService.update(id, creatureCreateDto);
+    update(@Param('id')id: string, @Body() CreatureUpdateDto: CreatureUpdateDto): Promise<Creature> {
+        return this.creaturesService.update(id, CreatureUpdateDto);
     }
 
     @Delete(':id')
