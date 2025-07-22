@@ -1,0 +1,38 @@
+.category-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.category-button {
+  background: white;
+  border: 2px solid #e9ecef;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #5a6c7d;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: capitalize;
+  min-width: 140px;
+}
+
+.category-button:hover {
+  background: #f8f9fa;
+  border-color: #3498db;
+  color: #2c3e50;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.category-button.active {
+  background: #3498db;
+  border-color: #3498db;
+  color: white;
+  box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+}
