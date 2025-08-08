@@ -1,0 +1,72 @@
+<div class="task-manager">
+  <div class="task-statistics">
+    <div class="stat-card">
+      <h3>All Tasks</h3>
+      <span class="count">{{ getallTasksCount() }}</span>
+    </div>
+    
+    <div class="stat-card">
+      <h3>Completed</h3>
+      <span class="count completed">{{ getcompletedTasksCount() }}</span>
+    </div>
+    
+    <div class="stat-card">
+      <h3>Pending</h3>
+      <span class="count pending">{{ getpendingTasksCount() }}</span>
+    </div>
+  </div>
+
+
+  <div class="add-task-form">
+    <input 
+      type="text" 
+      [(ngModel)]="newTaskTitle" 
+      placeholder="Enter task title"
+      class="task-title">
+    
+    <textarea 
+      [(ngModel)]="newTaskDescription" 
+      placeholder="Enter task description"
+      class="task-description">
+    </textarea>
+    
+    <button 
+      (click)="addTask()" 
+      class="add-button">
+      Add Task
+    </button>
+  </div>
+
+
+  <div class="tasks-list">
+    <div *ngFor="let task of tasks" class="task-item" 
+         [class.completed]="task.completed">
+      
+      <div class="task-content">
+        <h3>{{ task.title }}</h3>
+        <p>{{ task.description }}</p>
+      </div>
+      
+      <div class="task-actions">
+        <label class="checkbox-label">
+          <input 
+            type="checkbox" 
+            [checked]="task.completed"
+            (change)="toggleCompleted(task.id)">
+          {{ task.completed ? 'Completed' : 'Mark as complete' }}
+        </label>
+        
+        <button 
+          (click)="deleteTask(task)" 
+          class="delete-button">
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <div *ngIf="tasks.length === 0" class="empty-state">
+    <div class="no-content">No tasks yet. Add your first task above!</div>
+  </div>
+</div>

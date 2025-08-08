@@ -1,0 +1,25 @@
+.error-message {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #fff5f5;
+  border: 1px solid #fed7d7;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.error-message h3 {
+  font-size: 1.5rem;
+  color: #c53030;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.error-message p {
+  font-size: 1.1rem;
+  color: #744210;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 400;
+}

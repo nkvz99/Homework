@@ -1,0 +1,30 @@
+1. Generate a new project        
+  ng new task-manager-app --standalone --routing=false --style=css --ssr=false --skip-tests           DONE  ✅
+
+ 
+2. To create a component named task-manager                 
+ ng g c ../components/task-manager --skip-tests                                                       DONE  ✅
+
+3. To call component selector to index.html file                                                     DONE  ✅
+
+4. To import component class name to app.ts file                                                     DONE  ✅
+
+
+5. To create a type for TASK-MANAGER                                                                 DONE  ✅
+
+6. To define task-manager component to task-manager.ts file                                          DONE  ✅
+7. to create method to add new task                                                                  DONE  ✅
+8. to create method to change the task status ( COMPLETED | NOT COMPLETED)                           DONE  ✅
+9. to create method to delete the task  ( DELETE TASK)                                               DONE  ✅
+10. to create method to get the number of all tasks ( COMPLETED)                                     DONE  ✅
+11. to create method to get the number of all tasks ( PENDING)                                       DONE  ✅
+12. to create method to get the number of all tasks ( ALL TASKS)                                     DONE  ✅
+
+13. TO CREATE TEMPLATE TO PRINT IN HTML FILE AND SHOW ON BrowserModule                               DONE  ✅
+  - to import imports: [CommonModule, FormsModule],  to the component that i can use ngModel and ngIf*(two way binding )
+  
+
+14. TO MAKE SOME STYLE IN CSS FILE WITH THE CLASSES FROM HTML FILE                                   DONE  ✅
+
+
+
