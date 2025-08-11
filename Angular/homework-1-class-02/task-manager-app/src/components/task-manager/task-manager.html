@@ -37,10 +37,9 @@
     </button>
   </div>
 
-
-  <div class="tasks-list">
-    <div *ngFor="let task of tasks" class="task-item" 
-         [class.completed]="task.completed">
+<div class="tasks-list">
+  @for (task of tasks; track task.id) {
+    <div class="task-item" [class.completed]="task.completed">
       
       <div class="task-content">
         <h3>{{ task.title }}</h3>
@@ -63,10 +62,11 @@
         </button>
       </div>
     </div>
-  </div>
+  }
+</div>
 
-
-  <div *ngIf="tasks.length === 0" class="empty-state">
+@if (tasks.length === 0) {
+  <div class="empty-state">
     <div class="no-content">No tasks yet. Add your first task above!</div>
   </div>
-</div>
+}
