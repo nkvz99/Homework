@@ -23,9 +23,9 @@
                 <div class="status-change">
                     <label for="status-{{todo.id}}">Change Status:</label>
                     <select id="status-{{todo.id}}" [(ngModel)]="selectedStatuses[todo.id]" class="status-select">
-                        <option [ngValue]="TodoStatus.PENDING">📋 Pending</option>
-                        <option [ngValue]="TodoStatus.IN_PROGRESS">🔄 In Progress</option>
-                        <option [ngValue]="TodoStatus.COMPLETED">✅ Completed</option>
+                        <option [value]="TodoStatus.PENDING">📋 Pending</option>
+                        <option [value]="TodoStatus.IN_PROGRESS">🔄 In Progress</option>
+                        <option [value]="TodoStatus.COMPLETED">✅ Completed</option>
                     </select>
                     <button class="update-btn" (click)="updateTodoStatus(todo.id, selectedStatuses[todo.id])"
                         [disabled]="selectedStatuses[todo.id] === todo.status">
