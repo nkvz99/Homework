@@ -49,31 +49,7 @@ export class TodoAdd {
     }
   }
 
-  getErrorMessage (
-    controlName: string,
-    errorName: string,
-    minLengthRequired = 0,
-    MaxLengthRequired = 0
-  ){
 
-    const control = this.todoForm.get(controlName);
-    const hasError = control?.hasError(errorName) && control.touched;
-
-    if(hasError){
-      switch(errorName) {
-        case 'required':
-          return `${controlName} is required`;
-        case 'minlength':
-          return `${controlName} must be at least ${minLengthRequired} characters long`;
-        case 'maxlength':
-          return `${controlName} must be at most ${MaxLengthRequired} characters long`;
-        default:
-          return null;
-      }
-
-    }
-    return null;
-  }
 
   getAllErrorMessages(fieldName: string): string {
   const control = this.todoForm.get(fieldName);
