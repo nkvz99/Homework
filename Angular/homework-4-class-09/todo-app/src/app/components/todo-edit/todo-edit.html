@@ -1,0 +1,38 @@
+<form class="todo-edit" [formGroup]="todoEdit" (ngSubmit)="onHandleSubmit()">
+    <label for="title">Todo Title *</label>
+    <input type="text" id="title" placeholder="Enter title" formControlName="title" />
+
+    @if(getAllErrorMessages('title')){
+    <span class="titleError">{{getAllErrorMessages('title')}}</span>
+    }
+
+    <label for="description">Description *</label>
+    <textarea id="description" placeholder="Description" formControlName="description"></textarea>
+
+    @if(getAllErrorMessages('description')){
+    <span class="descriptionError">{{getAllErrorMessages('description')}}</span>
+    }
+
+
+    <div class="todo-actions">
+        <div class="status-change">
+            <label for="status">Change Status:</label>
+            <select id="status" formControlName="status" class="status-select">
+                <option value="" disabled>Select Status</option>
+                @for (status of todoStatus; track status) {
+                <option [value]="status">
+                    {{getStatusLabel(status)}}
+                </option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <button type="submit" class="edit-btn" [disabled]="todoEdit.invalid"> 📝 Edit </button>
+    <button (click)="deleteTodo()" class="delete-btn">
+        🗑️ Delete
+    </button>
+    <button (click)="NavigateBackToDetailsTodo()" class="back-btn">
+        🔙 Back
+    </button>
+</form>

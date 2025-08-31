@@ -1,0 +1,16 @@
+<form class="todo-add" [formGroup]="todoForm" (ngSubmit)="onHandleSubmit()">
+
+    <input type="text" name="title" id="" placeholder="Add a new todo" formControlName="title"  />
+
+    @if(getAllErrorMessages('title')){
+        <span class="titleError">{{getAllErrorMessages('title')}}</span>
+    }
+    <textarea name="description" id="" placeholder="Description" formControlName="description"></textarea>
+
+    @if(getAllErrorMessages('description')){
+        <span class="descriptionError">{{getAllErrorMessages('description')}}</span>
+    }
+
+    
+    <button [disabled]="todoForm.invalid">Add Todo</button>
+</form>

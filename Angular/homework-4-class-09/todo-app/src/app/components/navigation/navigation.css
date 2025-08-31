@@ -1,0 +1,21 @@
+
+nav ul {
+    display: flex;
+    gap: 20px;
+    list-style-type: none;
+    justify-items: center;
+    justify-content: center;
+}
+
+ul li {
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.3s ease-in-out;
+
+}
+
+ul li:hover {
+    color: #007bff;
+    scale: 1.1;
+
+}

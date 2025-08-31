@@ -1,0 +1,14 @@
+<h3>TODO DETAILS</h3>
+
+<div class="todo-card">
+    <h4 class="todo-title">{{todo().title}}</h4>
+    <span class="todo-status" [class]="getStatusClass(todo().status)">
+        {{getStatusLabel(todo().status)}}
+    </span>
+    <p class="todo-description">{{todo().description}}</p>
+    <a class="todo-edit-btn" [routerLink]="['/todo-edit', todo().id]"> 📝 Edit</a>
+    <button class="navigate-back-btn" (click)="navigateToHome()"> &larr; Go Back</button>
+</div>
+
+
+
