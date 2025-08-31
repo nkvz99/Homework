@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-todo-add',
-  imports: [ ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './todo-add.html',
   styleUrl: './todo-add.css',
 })
@@ -22,7 +22,7 @@ export class TodoAdd {
     private readonly fb: NonNullableFormBuilder,
     private readonly todosService: TodosService,
     private readonly router: Router
-  ) {}
+  ) { }
   todoForm: FormGroup;
   isSubmitted = false;
 
@@ -48,43 +48,43 @@ export class TodoAdd {
   }
 
 
-onHandleSubmit(){
-  this.isSubmitted = true;
-  const isInvalid = this.todoForm.invalid;
-  if (isInvalid) {
-    this.todoForm.markAllAsTouched();
-    return;
+  onHandleSubmit() {
+    this.isSubmitted = true;
+    const isInvalid = this.todoForm.invalid;
+    if (isInvalid) {
+      this.todoForm.markAllAsTouched();
+      return;
+    }
+
+    const formValues = this.todoForm.value;
+
+    this.todosService.createTodo(formValues.title, formValues.description);
+
+
+    this.todoForm.reset();
+    this.isSubmitted = false;
+
+
+    this.router.navigate(['/']);
   }
-
-  const formValues = this.todoForm.value;
-  
-  this.todosService.createTodo(formValues.title, formValues.description);
-  
-
-  this.todoForm.reset();
-  this.isSubmitted = false;
-  
-  // Навигирај назад до home страната
-  this.router.navigate(['/']);
-}
 
 
 
 
   getAllErrorMessages(fieldName: string): string {
-  const control = this.todoForm.get(fieldName);
+    const control = this.todoForm.get(fieldName);
 
 
-  
-  if (!control?.errors || !control?.touched && !this.isSubmitted) return '';
-  
-  const errors = control.errors;
-  
-  if (errors['required']) return `${fieldName} is required`;
-  if (errors['minlength']) return `${fieldName} must be at least ${errors['minlength'].requiredLength} characters`;
-  if (errors['maxlength']) return `${fieldName} cannot exceed ${errors['maxlength'].requiredLength} characters`;
-  
-  return '';
-}
+
+    if (!control?.errors || !control?.touched && !this.isSubmitted) return '';
+
+    const errors = control.errors;
+
+    if (errors['required']) return `${fieldName} is required`;
+    if (errors['minlength']) return `${fieldName} must be at least ${errors['minlength'].requiredLength} characters`;
+    if (errors['maxlength']) return `${fieldName} cannot exceed ${errors['maxlength'].requiredLength} characters`;
+
+    return '';
+  }
 
 }
