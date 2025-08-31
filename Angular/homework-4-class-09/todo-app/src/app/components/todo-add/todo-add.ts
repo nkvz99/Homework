@@ -8,6 +8,7 @@ import {
   NonNullableFormBuilder,
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-todo-add',
@@ -18,7 +19,9 @@ import { CommonModule } from '@angular/common';
 export class TodoAdd {
 
   constructor(
-    private readonly fb: NonNullableFormBuilder
+    private readonly fb: NonNullableFormBuilder,
+    private readonly todosService: TodosService,
+    private readonly router: Router
   ) {}
   todoForm: FormGroup;
   isSubmitted = false;
@@ -45,14 +48,25 @@ export class TodoAdd {
   }
 
 
-  onHandleSubmit(){
-    this.isSubmitted = true;
-    const isInvalid = this.todoForm.invalid;
-    if (isInvalid) {
-      this.todoForm.markAllAsTouched();
-      return;
-    }
+onHandleSubmit(){
+  this.isSubmitted = true;
+  const isInvalid = this.todoForm.invalid;
+  if (isInvalid) {
+    this.todoForm.markAllAsTouched();
+    return;
   }
+
+  const formValues = this.todoForm.value;
+  
+  this.todosService.createTodo(formValues.title, formValues.description);
+  
+
+  this.todoForm.reset();
+  this.isSubmitted = false;
+  
+  // Навигирај назад до home страната
+  this.router.navigate(['/']);
+}
 
 
 
