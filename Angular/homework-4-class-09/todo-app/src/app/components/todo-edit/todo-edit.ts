@@ -65,7 +65,7 @@ export class TodoEdit {
 
 
   private initializeForm() {
-    this.todoEdit = new FormGroup(
+    this.todoEdit = this.fb.group(
       {
         title: this.fb.control('', [
           Validators.required,
